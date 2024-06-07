@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>J&M Gifters</title>
+  
+  
+  
+    <style>
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #5CDB95;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            color: white;
+            padding: 2em;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 2em;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em;
+            width: 200px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+        }
+
+        form label {
+            margin-top: 1em;
+        }
+
+        form input, form textarea {
+            padding: 0.5em;
+            margin-top: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            margin-top: 1em;
+            padding: 0.7em;
+            border: none;
+            background-color: #5CDB95;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #379683;
+        }
+
+        .faq {
+            padding: 2em;
+            background-color: #f4f4f4;
+            margin: 2em 0;
+        }
+
+        .faq h2 {
+            text-align: center;
+        }
+
+        .faq div {
+            margin-bottom: 1em;
+        }
+
+        .cart {
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2em auto;
+            width: 80%;
+        }
+
+        .cart h2 {
+            text-align: center;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart ul li {
+            padding: 1em 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .admin-section {
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 2em auto;
+            width: 80%;
+        }
+
+        .admin-section h2 {
+            text-align: center;
+        }
+
+        .order-history {
+            margin-top: 2em;
+        }
+
+        .order-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .order-history th, .order-history td {
+            padding: 1em;
+            border: 1px solid #ddd;
+        }
+
+        .order-history th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>J&M Gifters</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="home">
+        <section class="hero">
+            <h2>Welcome to J&M Gifters</h2>
+            <p>Your one-stop shop for gifts and flowers</p>
+        </section>
+
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product-list">
+                <div class="product" data-name="Rose Bouquet" data-price="29.99">
+                    <h3>Rose Bouquet</h3>
+                    <img src="https://via.placeholder.com/200" alt="Rose Bouquet">
+                    <p>Beautiful bouquet of red roses.</p>
+                    <p>Price: $29.99</p>
+                    <button onclick="addToCart('Rose Bouquet', 29.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Teddy Bear" data-price="19.99">
+                    <h3>Teddy Bear</h3>
+                    <img src="https://via.placeholder.com/200" alt="Teddy Bear">
+                    <p>Cuddly teddy bear perfect for gifting.</p>
+                    <p>Price: $19.99</p>
+                    <button onclick="addToCart('Teddy Bear', 19.99)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Gift Basket" data-price="39.99">
+                    <h3>Gift Basket</h3>
+                    <img src="https://via.placeholder.com/200" alt="Gift Basket">
+                    <p>Assorted goodies in a beautiful basket.</p>
+                    <p>Price: $39.99</p>
+                    <button onclick="addToCart('Gift Basket', 39.99)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section id="cart" class="cart" style="display: none;">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <h3>Total: $<span id="cart-total">0.00</span></h3>
+            <h3>Paste Payment Confirmation:</h3>
+            <textarea id="payment-message" placeholder="Paste your payment confirmation here"></textarea>
+            <button onclick="confirmPayment()">Confirm Payment</button>
+        </section>
+
+        <section id="admin" class="admin-section" style="display: none;">
+            <h2>Admin Space</h2>
+            <form id="admin-form">
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product-name"><br><br>
+                
+                <label for="product-price">Product Price:</label>
+                <input type="text" id="product-price" name="product-price"><br><br>
+                
+                <button type="submit">Add Product</button>
+            </form>
+
+            <div class="order-history">
+                <h3>Order History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-history">
+                        <!-- Orders will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div>
+                <h3>What are your delivery options?</h3>
+                <p>We offer standard, express, and same-day delivery options.</p>
+            </div>
+            <div>
+                <h3>Can I customize my order?</h3>
+                <p>Yes, we offer customization for most of our products. Please contact us for more details.</p>
+            </div>
+            <div>
+                <h3>What is your return policy?</h3>
+                <p>We accept returns within 30 days of purchase. The product must be in its original condition.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 J&M Gifters. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let orderId = 1;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const adminLink = document.querySelector('a[href="#admin"]');
+            adminLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                toggleAdminSpace();
+            });
+
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Thank you for your message. We will get back to you soon!');
+                contactForm.reset();
+            });
+
+            const adminForm = document.getElementById('admin-form');
+            adminForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                addProduct();
+                adminForm.reset();
+            });
+        });
+
+        function toggleAdminSpace() {
+            const adminSpace = document.getElementById('admin');
+            if (adminSpace.style.display === 'none' || adminSpace.style.display === '') {
+                adminSpace.style.display = 'block';
+            } else {
+                adminSpace.style.display = 'none';
+            }
+        }
+
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+            cartTotal.textContent = total.toFixed(2);
+            document.getElementById('cart').style.display = 'block';
+        }
+
+        function confirmPayment() {
+            const paymentMessage = document.getElementById('payment-message').value;
+            if (paymentMessage.trim()) {
+                alert('Payment confirmed! Thank you for your purchase.');
+                saveOrder(paymentMessage);
+                clearCart();
+            } else {
+                alert('Please paste your payment confirmation.');
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            document.getElementById('payment-message').value = '';
+            document.getElementById('cart').style.display = 'none';
+        }
+
+        function addProduct() {
+            const productName = document.getElementById('product-name').value;
+            const productPrice = parseFloat(document.getElementById('product-price').value).toFixed(2);
+            if (productName && productPrice) {
+                const productList = document.querySelector('.product-list');
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.dataset.name = productName;
+                productDiv.dataset.price = productPrice;
+                productDiv.innerHTML = `
+                    <h3>${productName}</h3>
+                    <img src="https://via.placeholder.com/200" alt="${productName}">
+                    <p>Price: $${productPrice}</p>
+                    <button onclick="addToCart('${productName}', ${productPrice})">Add to Cart</button>
+                `;
+                productList.appendChild(productDiv);
+                alert('Product added successfully!');
+            } else {
+                alert('Please enter valid product details.');
+            }
+        }
+
+        function saveOrder(paymentMessage) {
+            const orderHistory = document.getElementById('order-history');
+            cart.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${orderId++}</td>
+                    <td>${item.name}</td>
+                    <td>$${item.price}</td>
+                    <td>Pending</td>
+                `;
+                orderHistory.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
 
